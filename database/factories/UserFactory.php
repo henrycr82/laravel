@@ -1,6 +1,7 @@
 <?php
 
 use Faker\Generator as Faker;
+Use App\Group;
 
 /*
 |--------------------------------------------------------------------------
@@ -21,11 +22,25 @@ $factory->define(App\User::class, function (Faker $faker) {
         'remember_token' => str_random(10),
     ];
 });
-
-/*$factory->define(App\Notes::class, function (Faker\Generator $faker) {
+/*
+$factory->define(App\Note::class, function ($faker) {
     return [
+        //'group_id' => 1,
+        'group_id' => function () {
+            return factory(App\Group::class)->create()->id;
+        }, 
         'title' => $faker->text,
         'body' => $faker->text,
         'important' => $faker->boolean,
     ];
-});*/
+});
+*/
+
+$factory->define(App\Note::class, function ($faker) {
+    return [
+     'group_id' => 2,
+     'title' => $faker->title,
+     'body' => $faker->paragraph,
+     'important' => $faker->boolean,
+    ];
+});

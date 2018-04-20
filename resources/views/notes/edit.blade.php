@@ -11,7 +11,7 @@
 		en la sección de codigo : '/notes/{{ $note->id}}' no hace falta las llaves dobles porque estamos dentro de php o tambien podriamos hacer una concatenación de la siguiente manera
 		"/notes/".$note->id
 		--}}
-		{!! Form::model($note,['url' => '/notes/{ $note->id }', 'method' => 'PATCH']) !!}
+		{!! Form::model($note,['url' => "/notes/{$note->id}", 'method' => 'PATCH']) !!}
 			<legend>Ediatr nota</legend>
 			@include('layouts/_validations_errors')
 			@include('notes/_form')
